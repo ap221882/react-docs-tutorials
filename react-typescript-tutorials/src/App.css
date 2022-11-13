@@ -37,3 +37,7 @@
   place-items: center;
   font-size: 2rem;
 }
+
+.paragraph.para {
+  background-color: crimson;
+}

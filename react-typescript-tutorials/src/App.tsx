@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 interface AppProps {
@@ -6,11 +6,28 @@ interface AppProps {
   extraTest?: string;
 }
 
+interface User {
+  name: string;
+  age: number;
+  country: string;
+}
+
 function App({ headerText, extraTest = "I am the default text" }: AppProps) {
+  const [user, setUser] = useState<User | null>(null);
+
+  const fetchUser = () =>
+    setUser({
+      name: "Ajay",
+      age: 22,
+      country: "India",
+    });
+
   return (
     <>
       <h1 className='header'>{headerText}</h1>
       <p className='paragraph'>{extraTest}</p>
+      <button onClick={fetchUser}>Fetch user on click</button>
+      {user && <p className='paragraph para'>{user.name}</p>}
     </>
   );
 }
