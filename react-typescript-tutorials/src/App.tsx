@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./App.css";
 import Form from "./components/Form";
+import { InputValueContext } from "./contexts/InputValueProvider";
 
 interface AppProps {
   headerText: string;
@@ -15,6 +16,8 @@ interface User {
 
 function App({ headerText, extraTest = "I am the default text" }: AppProps) {
   const [user, setUser] = useState<User | null>(null);
+
+  const { state, dispatch } = useContext(InputValueContext);
 
   const fetchUser = () =>
     setUser({
@@ -32,6 +35,10 @@ function App({ headerText, extraTest = "I am the default text" }: AppProps) {
       </div>
       {user && <p className='paragraph para'>{user.name}</p>}
       <Form />
+      <p className='paragraph'>Value: {state.inputValue}</p>
+      <button onClick={() => dispatch({ type: "SET_INPUT_VALUE_TO_100" })}>
+        SET_INPUT_VALUE_TO_100
+      </button>
     </>
   );
 }

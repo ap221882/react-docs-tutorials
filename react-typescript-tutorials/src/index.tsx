@@ -3,13 +3,16 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { InputValueProvider } from "./contexts/InputValueProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App headerText='This is a header' />
+    <InputValueProvider>
+      <App headerText='This is a header' />
+    </InputValueProvider>
   </React.StrictMode>
 );
 
