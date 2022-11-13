@@ -6,11 +6,11 @@ interface AppProps {
   extraTest?: string;
 }
 
-function App({ headerText, extraTest }: AppProps) {
+function App({ headerText, extraTest = "I am the default text" }: AppProps) {
   return (
     <>
       <h1 className='header'>{headerText}</h1>
-      <p>{extraTest}</p>
+      <p className='paragraph'>{extraTest}</p>
     </>
   );
 }
