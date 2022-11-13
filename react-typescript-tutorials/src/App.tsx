@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import Form from "./components/Form";
 
 interface AppProps {
   headerText: string;
@@ -30,6 +31,7 @@ function App({ headerText, extraTest = "I am the default text" }: AppProps) {
         <button onClick={fetchUser}>Fetch user on click</button>
       </div>
       {user && <p className='paragraph para'>{user.name}</p>}
+      <Form />
     </>
   );
 }
