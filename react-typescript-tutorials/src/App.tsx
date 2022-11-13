@@ -26,7 +26,9 @@ function App({ headerText, extraTest = "I am the default text" }: AppProps) {
     <>
       <h1 className='header'>{headerText}</h1>
       <p className='paragraph'>{extraTest}</p>
-      <button onClick={fetchUser}>Fetch user on click</button>
+      <div className='button-container'>
+        <button onClick={fetchUser}>Fetch user on click</button>
+      </div>
       {user && <p className='paragraph para'>{user.name}</p>}
     </>
   );

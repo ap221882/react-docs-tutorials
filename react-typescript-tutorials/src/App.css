@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  transition: 0.4s ease;
 }
 .App {
   text-align: center;
@@ -40,4 +41,19 @@
 
 .paragraph.para {
   background-color: crimson;
+  height: 50vh;
+}
+
+.button-container {
+  height: 50vh;
+  display: grid;
+  place-items: center;
+}
+
+.button-container button {
+  padding: 2rem;
+  background: burlywood;
+  border: 2px solid;
+  border-radius: 3rem;
+  font-size: 1rem;
 }
