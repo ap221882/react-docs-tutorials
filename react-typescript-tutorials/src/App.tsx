@@ -29,9 +29,9 @@ function App({ headerText, extraTest = "I am the default text" }: AppProps) {
   ];
 
   const orders = [
-    { orderId: 1, quantity: 5, amount: 78 },
-    { orderId: 2, quantity: 15, amount: 178 },
-    { orderId: 3, quantity: 25, amount: 278 },
+    { id: 1, quantity: 5, amount: 78 },
+    { id: 2, quantity: 15, amount: 178 },
+    { id: 3, quantity: 25, amount: 278 },
   ];
   const [user, setUser] = useState<User | null>(null);
 

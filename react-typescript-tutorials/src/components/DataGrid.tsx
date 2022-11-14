@@ -1,21 +1,19 @@
 import React from "react";
 
-interface ItemI {
+interface Item {
   id: number;
-  name: string;
-  age: number;
 }
 
 type DataGridProps<T> = {
   items: T[];
 };
 
-function DataGrid<T>({ items }: DataGridProps<T>) {
+function DataGrid<T extends Item>({ items }: DataGridProps<T>) {
   return (
     <div style={{ backgroundColor: "ThreeDShadow" }}>
       <ul>
         {items.map((item) => (
-          <li>{JSON.stringify(item)}</li>
+          <li key={item.id}>{JSON.stringify(item)}</li>
         ))}
       </ul>
     </div>
