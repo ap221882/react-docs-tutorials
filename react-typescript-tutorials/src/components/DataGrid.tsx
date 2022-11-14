@@ -6,11 +6,11 @@ interface ItemI {
   age: number;
 }
 
-type Props = {
-  items: ItemI[];
+type DataGridProps<T> = {
+  items: T[];
 };
 
-const DataGrid = ({ items }: Props) => {
+function DataGrid<T>({ items }: DataGridProps<T>) {
   return (
     <div style={{ backgroundColor: "ThreeDShadow" }}>
       <ul>
@@ -20,6 +20,6 @@ const DataGrid = ({ items }: Props) => {
       </ul>
     </div>
   );
-};
+}
 
 export default DataGrid;

@@ -27,6 +27,12 @@ function App({ headerText, extraTest = "I am the default text" }: AppProps) {
     { id: 2, name: "Mitchel", age: 23 },
     { id: 3, name: "Mike", age: 50 },
   ];
+
+  const orders = [
+    { orderId: 1, quantity: 5, amount: 78 },
+    { orderId: 2, quantity: 15, amount: 178 },
+    { orderId: 3, quantity: 25, amount: 278 },
+  ];
   const [user, setUser] = useState<User | null>(null);
 
   const { state, dispatch } = useContext(InputValueContext);
@@ -52,6 +58,9 @@ function App({ headerText, extraTest = "I am the default text" }: AppProps) {
         SET_INPUT_VALUE_TO_100
       </button>
       <DataGrid items={items} />
+      <br />
+      <br />
+      <DataGrid items={orders} />
     </>
   );
 }
