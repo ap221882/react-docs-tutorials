@@ -1,10 +1,23 @@
 import React, { createContext, useReducer } from "react";
 
+type AppState = typeof initialState;
+//######THIS IS WRONG
+// type Action = {
+//   type: "SET_INPUT_VALUE" | "SET_INPUT_VALUE_TO_100";
+//   payload?: number;
+// };
+type Action =
+  | { type: "SET_INPUT_VALUE"; payload: number }
+  | { type: "SET_INPUT_VALUE_TO_100" };
+interface InputProviderProps {
+  children: React.ReactNode;
+}
+
 const initialState = {
   inputValue: 0,
 };
 
-const reducer = (state, action) => {
+const reducer = (state: AppState, action: Action) => {
   switch (action.type) {
     case "SET_INPUT_VALUE":
       return {
@@ -21,12 +34,15 @@ const reducer = (state, action) => {
   }
 };
 
-const InputValueContext = createContext({
+const InputValueContext = createContext<{
+  state: AppState;
+  dispatch: React.Dispatch<Action>;
+}>({
   state: initialState,
   dispatch: () => {},
 });
 
-function InputValueProvider({ children }) {
+function InputValueProvider({ children }: InputProviderProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
